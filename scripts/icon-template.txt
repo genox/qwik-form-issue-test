@@ -1,0 +1,26 @@
+import { component$, useStylesScoped$ } from '@builder.io/qwik';
+import styles from '../icon/icon.pcss?inline';
+import { n2px } from '~/utils/images/n2px';
+
+type Props = {
+  size?: number;
+  heightAuto?: boolean;
+  width?: number;
+  height?: number;
+};
+
+export const {{component-name}} = component$<Props>(({ width, height, size, heightAuto }) => {
+  const sizePx = n2px(size || 24);
+
+  useStylesScoped$(styles);
+
+  let dimensions = heightAuto
+    ? { width: sizePx, height: 'auto' }
+    : { width: sizePx, height: sizePx };
+
+  if (width && height) {
+    dimensions = { width: n2px(width), height: n2px(height) };
+  }
+
+  return ({{component-svg}});
+});

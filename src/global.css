@@ -1,0 +1,76 @@
+/*@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200;400;700;800&display=swap");*/
+/*@import url("https://fonts.googleapis.com/css2?&family=Inter:wght@400;700;900&display=swap");*/
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html {
+  -webkit-text-size-adjust: 100%;
+  tab-size: 4;
+}
+
+html[data-theme='dark'] * {
+  color-scheme: dark;
+}
+
+html[data-theme='light'] * {
+  color-scheme: light;
+}
+
+body {
+  padding: 0;
+  line-height: inherit;
+}
+
+@layer base {
+  .prose {
+    h1, h2, h3, h4, h5, h6 {
+      @apply font-heading font-normal
+    }
+  }
+  h1, h2, h3, h4, h5, h6 {
+    a, a.link {
+      @apply no-underline;
+    }
+  }
+  .bg-primary {
+    label.label span {
+      color: var(--fallback-pc,oklch(var(--pc)/1));
+    }
+    input.input {
+      background-color: var(--fallback-s,oklch(var(--p)/1));
+      @apply border-primary-content;
+      @apply text-primary-content;
+    }
+  }
+  .bg-secondary {
+    label.label span {
+      color: var(--fallback-sc,oklch(var(--sc)/1));
+    }
+    input.input {
+      background-color: var(--fallback-s,oklch(var(--s)/1));
+      @apply border-secondary-content;
+      @apply text-secondary-content;
+    }
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus
+  input:-webkit-autofill,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    border: 1px solid green;
+    -webkit-text-fill-color: green;
+    -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+}
